@@ -6,18 +6,21 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "crypto-js": "^4.1.1",
     "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
     "koa-router": "^12.0.0",
     "ts-node": "^10.9.1"
   },
   "scripts": {
     "start": "npx tsc && node ./dist/index.js",
-    "dev": "nodemon ./src/index.ts",
+    "dev": "nodemon --delay 50ms ./src/index.ts",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix"
   },
   "devDependencies": {
     "@types/koa": "^2.13.5",
+    "@types/koa-bodyparser": "^4.3.8",
     "@types/koa-router": "^7.4.4",
     "@types/node": "^18.7.15",
     "@typescript-eslint/eslint-plugin": "^5.38.0",
