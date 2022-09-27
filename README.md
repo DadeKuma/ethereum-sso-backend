@@ -1,5 +1,6 @@
-# Koa Skeleton Template
-A template that I use to quickly build and develop Koa backends in TypeScript.
+# Ethereum SSO Backend
+A proof of concept for an authentication flow based on the Ethereum blockchain, extendible as a SSO.
+This is the backend, and you can find the frontend [here](https://github.com/DadeKuma/ethereum-sso-frontend).
 
 ## Setup
 - Run: `yarn install`
