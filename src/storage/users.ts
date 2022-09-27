@@ -6,28 +6,31 @@
 
 import { randomUUID } from "crypto";
 
-export type UserPayload = {
-    ethereumPublicAddress: string,
+export type UserSignInPayload = {
+    address: string,
+    signature: string;
+};
+
+export type UserSignUpPayload = {
+    address: string;
 };
 
 type User = {
-    ethereumPublicAddress: string,
+    address: string,
     walletNonce: string;
 };
 
 const userList: User[] = [];
 
-export const getUser = (ethereumPublicAddress: string) => {
-    const user = userList.find(u => u.ethereumPublicAddress === ethereumPublicAddress);
+export const getUser = (address: string) => {
+    const user = userList.find(u => u.address === address);
     return user;
 };
 
-export const hasUser = (ethereumPublicAddress: string) => {
-    return userList.find(u => u.ethereumPublicAddress === ethereumPublicAddress) !== undefined;
+export const hasUser = (address: string) => {
+    return userList.find(u => u.address === address) !== undefined;
 };
 
-export const registerUser = (ethereumPublicAddress: string): string => {
-    const walletNonce = randomUUID();
-    userList.push({ ethereumPublicAddress: ethereumPublicAddress, walletNonce: walletNonce });
-    return walletNonce;
+export const registerUser = (address: string) => {
+    userList.push({ address: address, walletNonce: randomUUID() });
 };
