@@ -11,24 +11,30 @@ const router = new Router();
 
 export type RequestPayload = {
     msg: string;
-    status: string;
+    status: number;
 };
 
 router.post("/signin", async (ctx, next) => {
     const data = <UserSignInPayload>ctx.request.body;
-    ctx.body = signIn(data);
+    const result = signIn(data);
+    ctx.body = result;
+    ctx.status = result.status;
     await next();
 });
 
 router.post("/register", async (ctx, next) => {
     const data = <UserSignUpPayload>ctx.request.body;
-    ctx.body = signUp(data);
+    const result = signUp(data);
+    ctx.body = result;
+    ctx.status = result.status;
     await next();
 });
 
 router.get("/nonce/:address", async (ctx, next) => {
     const address = ctx.params.address;
-    ctx.body = getNonce(address);
+    const result = getNonce(address);
+    ctx.body = result;
+    ctx.status = result.status;
     await next();
 });
 
