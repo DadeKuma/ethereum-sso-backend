@@ -34,3 +34,7 @@ export const hasUser = (address: string) => {
 export const registerUser = (address: string) => {
     userList.push({ address: address, walletNonce: randomUUID() });
 };
+
+export const regenerateNonce = (address: string) => {
+    userList.filter(u => u.address === address);
+};
